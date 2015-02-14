@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
@@ -19,11 +19,13 @@
   "devDependencies": {
     "chai": "^2.0.0",
     "del": "^1.1.1",
+    "event-stream": "^3.2.2",
     "gulp": "^3.8.11",
     "gulp-concat": "^2.4.3",
     "gulp-jshint": "^1.9.2",
     "gulp-minify-css": "^0.4.5",
     "gulp-notify": "^2.2.0",
+    "gulp-order": "^1.1.1",
     "gulp-rename": "^1.2.0",
     "gulp-uglify": "^1.1.0",
     "karma": "^0.12.31",
