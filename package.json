@@ -4,16 +4,37 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/TroutZen/LenderBee.git"
+    "url": "https://github.com/logicalGoldfish/LenderBee.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/TroutZen/LenderBee/issues"
+    "url": "https://github.com/logicalGoldfish/LenderBee/issues"
   },
-  "homepage": "https://github.com/TroutZen/LenderBee"
+  "homepage": "https://github.com/logicalGoldfish/LenderBee",
+  "devDependencies": {
+    "chai": "^2.0.0",
+    "del": "^1.1.1",
+    "event-stream": "^3.2.2",
+    "gulp": "^3.8.11",
+    "gulp-concat": "^2.4.3",
+    "gulp-jshint": "^1.9.2",
+    "gulp-minify-css": "^0.4.5",
+    "gulp-notify": "^2.2.0",
+    "gulp-order": "^1.1.1",
+    "gulp-rename": "^1.2.0",
+    "gulp-uglify": "^1.1.0",
+    "karma": "^0.12.31",
+    "karma-chai": "^0.1.0",
+    "karma-chrome-launcher": "^0.1.7",
+    "karma-mocha": "^0.1.10",
+    "karma-phantomjs-launcher": "^0.1.4",
+    "karma-requirejs": "^0.2.2",
+    "mocha": "^2.1.0",
+    "requirejs": "^2.1.16"
+  }
 }
