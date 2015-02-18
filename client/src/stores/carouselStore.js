@@ -3,7 +3,6 @@ var Reflux = require('reflux');
 var request = require('superagent');
 var actions = require('../actions/actions.js');
 
-
 var carouselStore = Reflux.createStore({
   
   data: {count: 0, items: ["lol","wat","cool","more","fun","pool","party","hooray","yay","k"]},
