@@ -12,6 +12,7 @@ span {
   margin: auto;
 }
 .panel-body .glyphicon glyphicon-menu-hamburger {
+  position: relative; /* so that the sideNavBar can be absolute relative top-nav-Bar */
   display: block;
   color: black;
 }
@@ -22,21 +23,32 @@ span {
 }
 
 .form-control {
-display: block;
-height: 34px;
-padding: 6px 12px;
-font-size: 14px;
-line-height: 1.42857143;
-color: #555;
-background-color: #fff;
-background-image: none;
-border: 1px solid #FFD34E;
-border-radius: 4px;
--webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
--webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
--o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+  display: block;
+  height: 34px;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #555;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #FFD34E;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+  -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+  -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+  transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+
+.sideNavBar {
+  background-color: #ddd;
+/*  opacity: 0.85;*/
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%; /* needs to take up 100% of the view height */
+  width: 250px; /* needs to take up 75% or so of the view width */
+  z-index: 9999; /* so sideNav renders on top of everything else */  
 }
 
 .postForm {

@@ -4,10 +4,10 @@ var actions = Reflux.createActions([
   "nextCarousel",
   "prevCarousel",
   "clickProfilePic", 
-  "clickHamburger", 
-  "searchSubmit",
   "requestLentPage",
-  "requestBorrowedPage"
+  "requestBorrowedPage",
+  "toggleSideNav",
+  "searchSubmit"
 ]);
 
 module.exports = actions;

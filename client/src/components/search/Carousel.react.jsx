@@ -1,7 +1,7 @@
 var React = require('react');
 var Reflux = require('reflux');
-var carouselStore = require('../stores/carouselStore.js');
-var actions = require('../actions/actions.js');
+var carouselStore = require('../../stores/CarouselStore.js');
+var actions = require('../../actions/actions.js');
 
 var carousel = React.createClass({
 

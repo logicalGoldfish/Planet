@@ -1,7 +1,7 @@
 var React = require('react');
 var Reflux = require('reflux');
-var actions = require('../actions/actions');
-var searchStore = require('../stores/searchStore');
+var actions = require('../../actions/actions');
+var searchStore = require('../../stores/searchStore');
 
 var searchBar = React.createClass({
  
