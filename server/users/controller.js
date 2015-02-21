@@ -10,21 +10,33 @@ controller.create = function(req, res, next){
 	//fb name (first, last)
 	User.create(req.body)
 		.then(function(user){
-		console.log('user created here ', user);
 		res.send(user);
 	})
 }
 
-
-
-controller.signin = function(req, res, next){
-	//sign in with fb
-	//check users table for match and do routing
+controller.getOne = function(req, res, next){
+	var userId = req.params.user;
+	console.log('userId  ', userId);
+	User.find({
+		where: {
+			id: userId
+		}
+	}).then(function(user){
+		res.json(user);
+	}).catch(function(error){
+		console.log('error inside the user controller getOne function ', error);
+	})
 }
 
-controller.update = function(req, res, next){
-}
 
-controller.delete = function(req, res, next){
-}
+// controller.signin = function(req, res, next){
+// 	//sign in with fb
+// 	//check users table for match and do routing
+// }
+
+// controller.update = function(req, res, next){
+// }
+
+// controller.delete = function(req, res, next){
+// }
 module.exports = controller;

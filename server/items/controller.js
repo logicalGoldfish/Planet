@@ -10,8 +10,6 @@ controller.create = function(req, res, next){
 	//query the user database to get id
 	//set the lender_id of the item to the user id
 	// console.log(req.params); //extract the username from the url
-	console.log('username-------', req.params.user);
-
 	User.find({ //find the user id of the currently logged in user
 		where: {
 			username: req.params.user
@@ -24,10 +22,10 @@ controller.create = function(req, res, next){
 			.then(function(item){
 				res.json(item);
 			})
-			.error(function(error){
+			.catch(function(error){
 				('inside error of items create controller ', error);
 			})
-	}).error(function(error){
+	}).catch(function(error){
 		('inside error of items create controller ', error);
 	})
 }
@@ -43,12 +41,12 @@ controller.getAll = function(req, res, next){
 		.then(function(items){
 			res.json(items);
 		})
-		.error(function(error){
+		.catch(function(error){
 			console.log(error);
 		})
 }
 
-controller.getOneUser = function(req, res, next){
+controller.getOneByUser = function(req, res, next){
 	//extract the user name
 	User.find({ //find the user id of the currently logged in user
 		where: {
@@ -56,15 +54,13 @@ controller.getOneUser = function(req, res, next){
 		}
 	})
 		.then(function(user){ //use the user's id to find associated items in the items table
-			console.log('------this is the returned user object from a User find ', user);
 			Item.findAll({
 				where: { //where the user id is associated with an items lender or borrower id
-						lender_id: user.id, //this id call may not be allowed, will have to test
+						lender_id: user.id //this id call may not be allowed, will have to test
 						// borrower_id: user.id
 					}
 				})
 				.then(function(items){
-					console.log('these are the items returned from a search by user--------', items);
 					res.json(items); //after we find the items, return them back to the client
 				})//the client can sort out based on lent or borrowed
 		})

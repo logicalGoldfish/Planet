@@ -5,3 +5,8 @@ var Message = global.db.Message;
 var controller = {};
 
 module.exports = controller;
+
+controller.getByUser = function(req, res, next){
+
+}
+
