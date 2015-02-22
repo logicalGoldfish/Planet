@@ -9,5 +9,6 @@ module.exports = function(sequelize, DataTypes) {
     street: DataTypes.STRING,
     state: DataTypes.STRING,
     country: DataTypes.STRING
+    imageurl: DataTypes.STRING
   });
 }
