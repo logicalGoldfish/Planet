@@ -40,6 +40,11 @@ span {
   transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
 }
 
+.messageBox {
+  width: 70%;
+  margin: auto;
+}
+
 .sideNavBar {
   background-color: #ddd;
 /*  opacity: 0.85;*/
