@@ -1,10 +1,10 @@
-
 // var Item = require('./models.js');
 var db 				 = require('../db/db.js');
 var Sequelize  = require('sequelize')
 var User 			 = global.db.User;
 var Item 			 = global.db.Item;
 var Message 	 = global.db.Message;
+
 var controller = {};
 
 controller.create = function(req, res, next){
