@@ -5,12 +5,15 @@ var Reflux = require('reflux');
 var searchStore = Reflux.createStore({
     listenables: [actions],
     data: {items: []},
+    lenderId: null,
     
     init: function() {
       var that = this;
-        request("/api/items/:user", function(res){
+        request("/api/items/" + "" + $('#searchBar').val() + "", function(res){
+          // that.data.items = res;
           that.data.items = JSON.parse(res.text);
-          that.trigger(that.items);
+          console.log('JSONN', that.data.items);
+          that.trigger(that.data);
         })
       },
 

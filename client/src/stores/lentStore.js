@@ -5,9 +5,16 @@ var Reflux = require('reflux');
 var lentStore = Reflux.createStore({
     listenables: [actions],
     data: {items: []},
+
+    onBorrowedItemReturned: function() {
+      // var that = this;
+      console.log('item returned');
+      // request('/api/items/:user/:item', function(res) {
+
+      // })
+    },
     
     onRequestLentPage: function() {
-      console.log('INSIDE STORE LENT NOW');
       var that = this;
         request("/api/items/:user", function(res){
           //TODO: Endpoint will query DB for user

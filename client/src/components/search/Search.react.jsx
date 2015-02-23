@@ -7,6 +7,8 @@ var TopBar = require('../app/TopBar.react.jsx');
 var SearchBar = require('./SearchBar.react.jsx');
 var Carousel = require('./Carousel.react.jsx');
 var SearchResults = require('./SearchResults.react.jsx');
+var PostPage = require('../postPage.react.jsx');
+var SingleItem = require('./singleItem.react.jsx');
 
 var Search = React.createClass({
 

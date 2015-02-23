@@ -20,6 +20,7 @@ var PostPage = React.createClass({
    */
   render: function() {
     return (
+      //later: plug in " + session.username + "
       <form className="postForm" action="/api/items/:user" method="post">
         <div className="form-group">
           <label for="itemName">Enter Item</label>

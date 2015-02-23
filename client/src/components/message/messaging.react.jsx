@@ -1,18 +1,24 @@
 var React = require('react');
 var Reflux = require('reflux');
-var messagingStore = require('../stores/messagingStore.js');
+var messagingStore = require('./../../stores/messagingStore.js');
 var Message = require('./message.react.jsx');
-var actions = require('../actions/actions.js');
+var MessageBox = require('./messageBox.react.jsx');
+var actions = require('./../../actions/actions.js');
 
 var Messaging = React.createClass({
-
   //listens to messagingStore
   mixins: [Reflux.connect(messagingStore)],
 
+  handleSubmit: function() {
+    actions.messageFormSubmitted();
+  },
+
   render: function(){
     //creates component for each message and loads them into the array messageGroup
+    var that = this;
+    console.log('and hare are the messages', this.state);
     var messageGroup = this.state.messages.map(function(singleMessage) {
-      return (<div><Message messageInfo={singleMessage} /></div>);
+      return (<Message message={singleMessage.message} from={singleMessage.from} />);
     });
     return (
       <div>
@@ -22,10 +28,7 @@ var Messaging = React.createClass({
             {messageGroup}
           </ul>
         </div>
-        <textarea rows="2" className="form-control" placeholder="Message..." id="searchBar"></textarea>
-        <span className="input-group-btn">
-          <button className="btn btn-warning" type="submit" onClick={this.handleSubmit}>submit message</button>
-        </span>
+        <MessageBox to={this.state.to} from={this.state.from} />
       </div>
     )
   }

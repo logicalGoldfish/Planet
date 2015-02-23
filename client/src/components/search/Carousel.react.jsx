@@ -2,7 +2,7 @@ var React = require('react');
 var Reflux = require('reflux');
 var carouselStore = require('../../stores/CarouselStore.js');
 var actions = require('../../actions/actions.js');
-
+var searchStore = require('../../stores/searchStore');
 var carousel = React.createClass({
 
   mixins: [Reflux.connect(carouselStore)],
@@ -15,7 +15,9 @@ var carousel = React.createClass({
     actions.nextCarousel();
   },
 
-  render: function(){
+  render: function() {
+    if (!this.state.items) {
+    
     return (
     <div className="carousel">
       <p>{this.state}</p>
@@ -28,6 +30,9 @@ var carousel = React.createClass({
       <img src="#" href="#" alt="next item set" className="inline arrow" onClick={this.handleRightArrowClick}/>
     </div>
     )
+  } else {
+    return (<div></div>)
+  }
   }
 })
 

@@ -31,6 +31,7 @@ controller.create = function(req, res, next){
 controller.getMessages = function(req, res, next){
 	//Again, we have to query the borrower for its id because we only have its username
 	//the lender id is included with the item
+
 	var user = req.params.user;
 	User.find({
 		where: {

@@ -14,8 +14,8 @@ $(document).ready(function(){
 	// var History      = require('./components/history/History.react.jsx');
 	var Notifications = require('./components/notifications/Notifications.react.jsx');
 	var ReviewPage = require('./components/review/reviewPage.react.jsx');
-	var Messaging = require('./components/messagingUsers.react.jsx');
-	var Message = require('./components/messaging.react.jsx');
+	var Messaging = require('./components/message/messagingUsers.react.jsx');
+	var Message = require('./components/message/messaging.react.jsx');
 	var PostItem = require('./components/postPage.react.jsx');
 
 

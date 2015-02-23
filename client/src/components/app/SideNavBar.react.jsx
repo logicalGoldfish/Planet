@@ -2,7 +2,6 @@ var React 			= require('react');
 var navStore 		= require('../../stores/navStore.js');
 var actions 	  = require('../../actions/actions.js');
 var Reflux 			= require('reflux');
-
 var Router			= require('react-router');
 var Link 				= Router.Link;
 

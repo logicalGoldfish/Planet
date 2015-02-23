@@ -1,7 +1,7 @@
 var React = require('react');
 var Reflux = require('reflux');
-var messagingUsersStore = require('../stores/messagingUsersStore.js');
-var actions = require('../actions/actions.js');
+var messagingUsersStore = require('./../../stores/messagingUsersStore.js');
+var actions = require('./../../actions/actions.js');
 var Router = require('react-router');
 var Link = Router.Link;
 
