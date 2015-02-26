@@ -32,6 +32,12 @@
       // Logged into your app and Facebook.
       FB.api('/me', function(response) {
           console.log(JSON.stringify(response));
+          $.ajax({
+            type: "POST",
+            url: "/api/users/signup",
+            data: response,
+            dataType: 'json'
+          });
       });
       testAPI();
     } else if (response.status === 'not_authorized') {
