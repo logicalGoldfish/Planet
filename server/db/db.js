@@ -7,7 +7,8 @@ if (!global.hasOwnProperty('db')) {
   // application executed on local machine
   sequelize = new Sequelize('LenderBee', 'root', '', {
     dialect: 'mysql',
-    port: 3306
+    port: 3306,
+    logging: false
   });
 
   global.db = {
@@ -26,13 +27,25 @@ if (!global.hasOwnProperty('db')) {
   var Notification = global.db.Notification;
   var Review = global.db.Review;
 
+  // User.instanceMethods.associates = function() {
+  //    User.hasMany(Review, {
+
+  //    });
+  //  };
+
+  //  Review.instanceMethods.associates = function() {
+  //    Review.belongsTo(User, {
+  //        foreignKey: userId
+  //    });
+  //  };
+
   User.hasMany(Item, {foreignKey: 'borrower_id'});
   User.hasMany(Item, {foreignKey: 'lender_id'});
   User.hasMany(Message, {foreignKey: 'to_id'});
   User.hasMany(Message, {foreignKey: 'from_id'});
   
-  User.belongsToMany(Item, {foreignKey: 'userreq_id', through: Notification});
-  Item.belongsToMany(User, {foreignKey: 'itemreq_id', through: Notification});
+  // User.belongsToMany(Item, {foreignKey: 'userreq_id', through: Notification});
+  // Item.belongsToMany(User, {foreignKey: 'itemreq_id', through: Notification});
 
   User.hasMany(Review, {foreignKey: 'reviewee_id'});
   User.hasMany(Review, {foreignKey: 'reviewer_id'});
@@ -40,6 +53,11 @@ if (!global.hasOwnProperty('db')) {
   
   // add foreign key for user -> review (rater)
   // add foreign key for user -> review (ratee)
+  Object.keys(global.db).forEach(function(modelName) {
+    if ('associate' in global.db[modelName]) {
+      global.db[modelName].associate(global.db);
+    }
+  });
 }
 
 module.exports = global.db;
