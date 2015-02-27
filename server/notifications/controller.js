@@ -26,6 +26,7 @@ controller.create = function(req, res, next){
 				.then(function(notification){
 					res.send(notification);
 				})
+      // change this so that req.body has UserId and ItemId as keys
 		}).catch(function(err) {
 			console.log('\nERROR WRITING NOTIFICATION:\n', err);
 			handleError(err, res);
@@ -36,6 +37,20 @@ controller.create = function(req, res, next){
 controller.getByUser = function(req, res, next){
   var user = req.params.user;
   var results = [];
+  // THIS IS TESTING
+  // use the id for req.params.user
+  User.findAll({
+    where: {
+      id: user
+    },
+    include: [Notification]
+  }).then(function(users) {
+    console.log('\n\n\n****GOT ALL USERS****\n\n\n')
+  }).catch(function(err) {
+    console.error('\nDAMMIT.\n', err);
+  });
+
+/*
   User.find({
     where: {
       username: user
@@ -100,6 +115,7 @@ controller.getByUser = function(req, res, next){
       });
     });
   });
+*/
 };
 
 

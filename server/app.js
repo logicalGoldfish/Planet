@@ -10,8 +10,6 @@ var Message = global.db.Message;
 var Notification = global.db.Notification;
 var Review = global.db.Review;
 
-console.log('USER:', User);
-
 app.set('port', process.env.PORT || 3000);
 
 require('./config.js')(app, express);

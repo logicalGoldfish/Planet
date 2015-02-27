@@ -81,4 +81,29 @@ controller.getReviews = function(req, res, next){
   });
 }
 
+controller.getPendingReviews = function(req, res, next) {
+  /*
+  req.params = {
+    user: 1 (userID in user table)
+  }
+  */
+  // find reviews where reviewer is user and rating/review is null
+  Review.findAll({
+    where: {
+      reviewer_id: req.params.user,
+      rating: null,
+      review: null
+    },
+    include: [
+      { model: User, as: 'reviewee' },
+      { model: Item, as: 'item' }
+    ]
+  }).catch(function(err) {
+    console.error('\nReview find all error:', err);
+  }).then(function(reviews) {
+    console.log('\nREVIEWS:', reviews);
+    res.send(reviews);
+  })
+}
+
 module.exports = controller;

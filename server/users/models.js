@@ -10,5 +10,13 @@ module.exports = function(sequelize, DataTypes) {
     state: DataTypes.STRING,
     street: DataTypes.STRING,
     country: DataTypes.STRING
+  }, {
+    classMethods: {
+      associate: function(models) {
+        models.User.belongsToMany(models.Item, {
+          through: models.Notification
+        });
+      }
+    }
   });
-}
+};

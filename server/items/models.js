@@ -8,6 +8,15 @@ module.exports = function(sequelize, DataTypes) {
     city: DataTypes.STRING,
     street: DataTypes.STRING,
     state: DataTypes.STRING,
-    country: DataTypes.STRING
+    country: DataTypes.STRING,
+    imageurl: DataTypes.STRING
+  }, {
+    classMethods: {
+      associate: function(models) {
+        models.Item.belongsToMany(models.User, {
+          through: models.Notification
+        });
+      }
+    }
   });
-}
+};

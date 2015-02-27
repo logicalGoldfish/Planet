@@ -158,6 +158,7 @@ module.exports = function(app, express){
 	app.post('/api/reviews/:user', reviews.create);
 	app.get('/api/reviews/user/:user', reviews.getReviews);
 	app.post('/api/reviews/users/:lender_id/:borrower_id', reviews.createPending); // [Note] Creates two reviews without rating/content for lender/borrower
+	app.get('/api/reviews/:user', reviews.getPendingReviews);
 
 	//API routes for items (can amend as we decide what we need)
 	app.post('/api/items/:user', items.create); //WORKS
