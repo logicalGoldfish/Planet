@@ -47,9 +47,13 @@ if (!global.hasOwnProperty('db')) {
   // User.belongsToMany(Item, {foreignKey: 'userreq_id', through: Notification});
   // Item.belongsToMany(User, {foreignKey: 'itemreq_id', through: Notification});
 
-  User.hasMany(Review, {foreignKey: 'reviewee_id'});
-  User.hasMany(Review, {foreignKey: 'reviewer_id'});
-  Item.hasMany(Review, {foreignKey: 'item_id'});
+  // User.hasMany(Review, {foreignKey: 'reviewee_id'});
+  Review.belongsTo(User, {as: 'reviewee', foreignKey: 'reviewee_id'});
+  // User.hasMany(Review, {foreignKey: 'reviewer_id'});
+  Review.belongsTo(User, {as: 'reviewer', foreignKey: 'reviewer_id'});
+  Review.belongsTo(Item, {as: 'item', foreignKey: 'item_id'});
+
+  // Item.hasMany(Review, {foreignKey: 'item_id'});
   
   // add foreign key for user -> review (rater)
   // add foreign key for user -> review (ratee)
