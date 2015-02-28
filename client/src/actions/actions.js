@@ -27,6 +27,7 @@ var actions = Reflux.createActions([
   "itemRequestDeclined",
   "getNotifications",
   "postFormSubmitted",
+  "mountUser",
   /* Items API */
   "fetchItems",
   "returnItem",

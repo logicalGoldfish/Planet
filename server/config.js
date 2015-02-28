@@ -16,6 +16,10 @@ var cookieParser		 = require('cookie-parser');
 var methodOverride 	 = require('method-override');
 var fb 							 = require('./.ApiKeysFB.js');
 
+// var app = require('express')();
+// var http = require('http').Server(app);
+// var io = require('socket.io').listen(http);
+
 
 module.exports = function(app, express){
 
@@ -153,6 +157,7 @@ module.exports = function(app, express){
 		users.create(req, res);
 	}); //
 	app.get('/api/users/test', users.testUser);
+	app.get('/api/users/init/:userID', users.init);
 	app.get('/api/users/:userId', users.getOne); //WORKS - returns all info on a single user, regardless of borrower/lender. --takes in a user_id. not username
 	app.post('/api/users/loc', function(req, res){
 		// console.log("THA REQUEST: ", req.body);

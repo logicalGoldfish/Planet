@@ -8,24 +8,23 @@ var request = require('superagent');
 var userStore = Reflux.createStore({
 	listenables: [actions],
 
-	data: {
-	  "id": 1,
-	  "fbid": "10100142512325989",
-	  "username": "Devin Otway",
-	  "firstname": "Devin",
-	  "lastname": "Otway",
-	  "fbprofile": "https://www.facebook.com/app_scoped_user_id/10100142512325989/",
-	  "rating": 0,
-	  "beebucks": 20,
-	  "city": "San Francisco",
-	  "state": "California",
-	  "street": "60 Rausch Street",
-	  "country": "USA",
-	  "zipcode": null,
-	  "fbpicture": "https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xaf1/v/t1.0-1/s200x200/10299096_920941902919_2601413335839246066_n.jpg?oh=d84be81325ef4dcc58166902813efe01&oe=557D7078&__gda__=1434617394_8d24dde889280975ed645fcb3ee1e515",
-	  "createdAt": "2015-02-28T02:23:15.000Z",
-	  "updatedAt": "2015-02-28T02:23:15.000Z"
-	},
+	data: {},
+	  // "id": 1,
+	  // "fbid": "10100142512325989",
+	  // "username": "Devin Otway",
+	  // "firstname": "Devin",
+	  // "lastname": "Otway",
+	  // "fbprofile": "https://www.facebook.com/app_scoped_user_id/10100142512325989/",
+	  // "rating": 0,
+	  // "beebucks": 20,
+	  // "city": "San Francisco",
+	  // "state": "California",
+	  // "street": "60 Rausch Street",
+	  // "country": "USA",
+	  // "zipcode": null,
+	  // "fbpicture": "https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xaf1/v/t1.0-1/s200x200/10299096_920941902919_2601413335839246066_n.jpg?oh=d84be81325ef4dcc58166902813efe01&oe=557D7078&__gda__=1434617394_8d24dde889280975ed645fcb3ee1e515",
+	  // "createdAt": "2015-02-28T02:23:15.000Z",
+	  // "updatedAt": "2015-02-28T02:23:15.000Z"
 
 
 	init: function(){
@@ -43,17 +42,30 @@ var userStore = Reflux.createStore({
 
 	// TODO: Currently nothing is calling fetchUserData, we need to figure out where to trigger it (App Component?)
 	// and also where to get the fbid (session/cookie?)
-	fetchUserData: function(){
-		// [Warning] this.data.city, is the this context correct?
-		request(makeUrl(api.user.fetchUserData, {fbid: this.data.fbid}), function(err, res){
-			if(err) {console.error('error fetching user data', err);}
-			else {
-				console.log(res.body);
-				this.data = res.body;
-				this.trigger(this.data);
-			}
-		}.bind(this));
-	},
+	// fetchUserData: function(){
+	// 	// [Warning] this.data.city, is the this context correct?
+	// 	request(makeUrl(api.user.fetchUserData, {fbid: this.data.fbid}), function(err, res){
+	// 		if(err) {console.error('error fetching user data', err);}
+	// 		else {
+	// 			console.log(res.body);
+	// 			this.data = res.body;
+	// 			this.trigger(this.data);
+	// 		}
+	// 	}.bind(this));
+	// },
+
+	onMountUser: function(data){
+	  var url = "/api/users/init/"+data.id;
+	  request.get(url, function(err, res){
+	    if ( err ) {
+	      console.err('error trying to get item information for user', err);
+	    }
+	    else {
+	      this.data = JSON.parse(res.text);
+	      this.trigger(this.data);
+	    }
+	  }.bind(this));
+	}, 
 	
 	getProp: function(prop) {
 		return this.data[prop] ? this.data[prop] : null;

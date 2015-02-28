@@ -10,6 +10,7 @@ $(document).ready(function(){
 	var DefaultRoute = Router.DefaultRoute;
 
 	var mainStore = require('./stores/mainStore.js');
+	var user = require('./stores/user.js');
 	var actions = require('./actions/actions.js');
 	
 	/* Components */
@@ -34,11 +35,22 @@ $(document).ready(function(){
 	/* Defines Top Level App Component */
 	var APP = React.createClass({
 
+		mixins: [Reflux.connect(user)],
+
 		// NavBar is initially hidden
 		getInitialState: function() {
 			return {
 				showSideNavBar: false 
 			};
+		},
+
+		componentDidMount: function(){
+			var socket = io.connect();
+			console.log("SOCKET: ", socket);
+			socket.on("userLoad", function(data){
+				actions.mountUser(data);
+			});
+
 		},
 
 		// toggles the state of the sideNavBar
@@ -72,37 +84,62 @@ $(document).ready(function(){
 		}
 	});
 
-	var Main = React.createClass({
-		mixins: [Reflux.connect(mainStore)],
+	// var Main = React.createClass({
+	// 	mixins: [Reflux.connect(mainStore)],
 
-		componentWillMount: function(){
+	// 	componentWillMount: function(){
 
-		},
-		render: function(){
-			// var state = <Login />;
-			// FB.getLoginStatus(function(response) {
-			//   if (response.status === 'connected') {
-			//   	console.log("butt");
-			//     //var state = <APP />;
-			//   }
-			// });
-			if(!this.state.loggedIn){		
-				if(true){ //if user is logged in	
-			  	actions.loginToggle(true);
-				} 
-			}
-			return (
-				<div>{this.state.loggedIn ? <APP /> : <Login />}</div>
-				)
-		}
-	});
+	// 	},
+
+	// 	// componentDidMount: function(){
+	// 	// 	var socket = io.connect();
+	// 	// 	console.log("SOCKET: ", socket);
+	// 	// 	socket.on("userLoad", function(data){
+	// 	// 		console.log("ALMIGHTY DATA: ");
+	// 	// 		console.log(data);
+	// 	// 	});
+
+	// 	// },
+
+	// 	render: function(){
+	// 		// var socket = io.connect();
+	// 		// console.log("SOCKET: ", socket);
+	// 		// socket.on("userLoad", function(data){
+	// 		// 	console.log("ALMIGHTY DATA: ");
+	// 		// 	console.log(data);
+	// 		// });
+
+	// 		// $.ajax({
+	// 		//   type: "GET",
+	// 		//   url: "/api/currentuser",
+	// 		//   data: response,
+	// 		//   dataType: 'json'
+	// 		// });
+
+	// 		// var state = <Login />;
+	// 		// FB.getLoginStatus(function(response) {
+	// 		//   if (response.status === 'connected') {
+	// 		//   	console.log("butt");
+	// 		//     //var state = <APP />;
+	// 		//   }
+	// 		// });
+	// 		if(!this.state.loggedIn){		
+	// 			if(true){ //if user is logged in	
+	// 		  	actions.loginToggle(true);
+	// 			} 
+	// 		}
+	// 		return (
+	// 			<div>{this.state.loggedIn ? <APP /> : <Login />}</div>
+	// 			)
+	// 	}
+	// });
 
 	/*<Route name="items-borrowed" path="user/user_id/items-borrowed" handler={Borrowed}/>*/
 	/*<Route name="items-lent" path="user/user_id/items-lent" handler={Lent}/>*/
 	/*<Route name="history" path="/history" handler={History}/>*/
 
 	var routes = (
-	    <Route name="app" path="/" handler={Main}>
+	    <Route name="app" path="/" handler={APP}>
 	  	<Route name="search" path="/" handler={Search} >
 	  		<Route name="ResultsMap" path="/resultsMap" handler={ResultsMap}/>
 	  	</Route>

@@ -9,14 +9,28 @@ var Item = global.db.Item;
 var Message = global.db.Message;
 var Notification = global.db.Notification;
 var Review = global.db.Review;
+var http = require('http').Server(app);
+var io = require('socket.io').listen(http);
 
-app.set('port', process.env.PORT || 3000);
+// app.set('port', process.env.PORT || 3000);
+
+var port = process.env.PORT || 8080;
 
 require('./config.js')(app, express);
 
-app.listen(app.get('port'), function(){
-  console.log('localhost listening on :' + app.get('port') + ' Ctrl-C to terminate');
-})
+// app.listen(app.get('port'), function(){
+//   console.log('localhost listening on :' + app.get('port') + ' Ctrl-C to terminate');
+// })
+
+http.listen(3000, function(){
+  console.log('listening on *:3000');
+});
+
+io.on('connection', function(socket){
+  socket.on('userInfo', function(msg){
+     io.emit("userLoad", msg);
+   });
+});
 
 // Creates tables if they don't exist
 User.sync().then(function() {

@@ -34,7 +34,11 @@ controller.create = function(req, res, next){
 	// fbpicture: DataTypes.STRING
 	//extract fb data to create users with
 	//fb name (first, last)
-	console.log(newUser);
+	// console.log("BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB");
+	// io.on('connection', function(socket){
+	//   console.log('AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA user connected');
+	//   io.emit("userLoad","newUser");
+	// });
 	User.find({
 		where: {
 			fbid: newUser.fbid
@@ -67,6 +71,19 @@ controller.getOne = function(req, res, next){
 	User.find({
 		where: {
 			id: userId
+		}
+	}).then(function(user){
+			res.json(user);
+		}).catch(function(error){
+			console.log('error', error);
+	})
+}
+
+controller.init = function(req, res, next){
+	var userId = req.params.userID;
+	User.find({
+		where: {
+			fbid: userId
 		}
 	}).then(function(user){
 			res.json(user);

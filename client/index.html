@@ -15,6 +15,7 @@
   <script src='https://cdnjs.cloudflare.com/ajax/libs/react/0.12.2/react-with-addons.js'></script>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/react/0.12.2/react.js'></script>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.2/js/bootstrap.min.js'></script>
+  <script src="https://cdn.socket.io/socket.io-1.1.0.js"></script>
   <!-- Google Maps API -->
   <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAna-lnoeF3HTZUEZJTzuccXqvXTZhOHO4"></script>
 </head>
@@ -31,19 +32,19 @@
     if (response.status === 'connected') {
       // Logged into your app and Facebook.
       //get picinfo
+      var socket = io();
       var picinfo = "";
       FB.api(
           "/me/picture?type=large",
           function (response) {
             if (response && !response.error) {
               picinfo = response.data.url;
-              console.log('picinfo: ', picinfo);
-              console.log(response.data.url);
             }
           }
       );
       FB.api('/me', function(response) {
         response.picinfo = picinfo;
+        socket.emit('userInfo', response);
           console.log(JSON.stringify(response));
           $.ajax({
             type: "POST",
