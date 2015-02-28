@@ -11,19 +11,17 @@ var singleItemStore = Reflux.createStore({
   //listens to actions
   listenables: [actions],
 
-  onSelectItem: function(itemName, itemId, itemPrice, itemDescription, lenderId) {
-   var that = this;
-   this.data.item = {name: itemName, id: itemId, description:itemDescription, price: itemPrice, lender: lenderId};
-   request("/api/users/" + "" + this.data.item.lender + "", function(res) {
-    var lenderInfo = JSON.parse(res.text);
-    that.data.lender.username = lenderInfo.username;
-    that.data.lender.firstname = lenderInfo.firstname;
-    that.data.lender.lastname = lenderInfo.lastname;
-    that.data.lender.reputation = lenderInfo.reputation;
-    that.data.lender.city = lenderInfo.city;
-    that.data.lender.state = lenderInfo.state;
-    that.trigger(that.data);
-   })
+  onSelectItem: function(item, lender) {
+    console.log('ITEMZ SELECTED YO', item);
+    console.log('ENDER SELECTED', lender);
+   this.data.item = item;
+   this.data.lender= lender;
+    // that.data.lender.firstname = lenderInfo.firstname;
+    // that.data.lender.lastname = lenderInfo.lastname;
+    // that.data.lender.reputation = lenderInfo.reputation;
+    // that.data.lender.city = lenderInfo.city;
+    // that.data.lender.state = lenderInfo.state;
+    this.trigger(this.data);
    
   }, 
 

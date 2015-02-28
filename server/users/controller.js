@@ -12,7 +12,7 @@ controller.create = function(req, res, next){
 	newUser.firstname = req.body.first_name;
 	newUser.lastname = req.body.last_name;
 	newUser.fbprofile = req.body.link;
-	if (req.body.loc!==undefined){
+	if (req.body.loc!==undefined) {
 		newUser.city = req.body.loc.city;
 		newUser.state = req.body.loc.state;
 		newUser.street = req.body.loc.address;
@@ -63,7 +63,7 @@ controller.create = function(req, res, next){
 }
 
 controller.getOne = function(req, res, next){
-	var userId = req.params.user;
+	var userId = req.params.userID;
 	User.find({
 		where: {
 			id: userId
@@ -71,6 +71,7 @@ controller.getOne = function(req, res, next){
 	}).then(function(user){
 			res.json(user);
 		}).catch(function(error){
+			console.log('error', error);
 	})
 }
 

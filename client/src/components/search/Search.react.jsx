@@ -8,6 +8,10 @@ var Carousel = require('./Carousel.react.jsx');
 var SearchResults = require('./SearchResults.react.jsx');
 var PostPage = require('../postPage.react.jsx');
 var SingleItem = require('./singleItem.react.jsx');
+var Router = require('react-router')
+var Link = Router.Link;
+var Route = Router.Route;
+var RouteHandler = Router.RouteHandler;
 
 var Search = React.createClass({
 
@@ -15,6 +19,7 @@ var Search = React.createClass({
     return (
       <div>
         <SearchBar />
+        <RouteHandler />
         <Carousel />
       </div>
     );

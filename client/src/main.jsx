@@ -23,12 +23,13 @@ $(document).ready(function(){
 	var ReviewPage 					= require('./components/review/reviewPage.react.jsx');
 	var PostItem 						= require('./components/postPage.react.jsx');
 	var Items 							= require('./components/items/items.jsx');
-	var Map									= require('./components/map/map.react.jsx');
+	// var Map									= require('./components/map/map.react.jsx');
 	var SingleConversation 	= require('./components/message/SingleConversation.react.jsx');
 	var SearchResults 			= require('./components/search/searchResults.react.jsx');
 	var SingleItem 					= require('./components/search/singleItem.react.jsx');
 	var Reviews 						= require('./components/review/reviews.react.jsx');
 	var Login        			  = require('./components/login.react.jsx');
+	var ResultsMap = require('./components/map/resultsMap.react.jsx');
 
 	/* Defines Top Level App Component */
 	var APP = React.createClass({
@@ -101,8 +102,11 @@ $(document).ready(function(){
 	/*<Route name="history" path="/history" handler={History}/>*/
 
 	var routes = (
-	  <Route name="app" path="/" handler={Main}>
-	  	<DefaultRoute name="search" handler={Search}/>
+	    <Route name="app" path="/" handler={Main}>
+	  	<Route name="search" path="/" handler={Search} >
+	  		<Route name="ResultsMap" path="/resultsMap" handler={ResultsMap}/>
+	  	</Route>
+	  	<Route name="SearchResults" path="/searchResults" handler={SearchResults}/>
 	  	<Route name="profile" path="/profile" handler={Profile}/>
 	  	<Route name="items" path="/items" handler={Items}/>
 	  	<Route name="notifications" path="/notifications" handler={Notifications}/>
@@ -111,7 +115,6 @@ $(document).ready(function(){
 	  	<Route name="messages" path="/messages" handler={Messaging}/>
 	  	<Route name="messageUser" path="/message" handler={SingleConversation}/>
 	  	<Route name="postItem" path="/post" handler={PostItem}/>
-	  	<Route name="SearchResults" path="/searchResults" handler={SearchResults}/>
 	  	<Route name="SingleItem" path="/singleItem" handler={SingleItem}/>
 	  	<Route name="Messaging" path="/messaging" handler={Message}/>
 	  </Route>

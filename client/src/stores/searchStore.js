@@ -8,20 +8,19 @@ var searchStore = Reflux.createStore({
     
     init: function() {
       // this.data.searched = $('#searchBar').val();
-      var that = this;
-        request("/api/items/city/samin/" + "" + this.data.searched + "", function(res){
-          // that.data.items = res;
-          that.data.items = JSON.parse(res.text);
-          that.trigger(that.data);
-          });
+      
       },
 
     onSearchSubmit: function(searchedVal) {
-        // this.searchInput = $('#searchBar').val();
-        // console.log('SEARCHINP', this.searchInput);
-        // $('#searchBar').val('');
-        this.data.searched = searchedVal;
-        this.init();
+      var that = this;
+      //hard-coded user-ID to 1 currently
+        request("/api/items/city/1/" + "" + searchedVal + "", function(res){
+          // that.data.items = res;
+          console.log('THE DATA RETURNED FROM THE SEARCH', JSON.parse(res.text))
+          that.data.items = JSON.parse(res.text);
+          that.trigger(that.data);
+          actions.searchResComplete(that.data.items);
+        });
     },
 
     getInitialState: function() {

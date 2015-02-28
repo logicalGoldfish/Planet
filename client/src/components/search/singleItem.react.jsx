@@ -10,11 +10,12 @@ var singleItem = React.createClass({
   mixins: [Reflux.connect(singleItemStore), Router.Navigation],
 
   handleItemRequest: function() {
-    actions.itemRequestSubmitted(this.state.item.id, "samin");
+    //hard-coded borrower ID
+    actions.itemRequestSubmitted(this.state.item.id, 1);
   },
 
   handleMessageLender: function() {
-    actions.lenderMessaged(this.state.item.lender, this.state.lender.username);
+    actions.lenderMessaged(this.state.lender, this.state.lender.id);
      this.transitionTo('Messaging')
   },
 
@@ -22,14 +23,13 @@ var singleItem = React.createClass({
     return (
       <div>
         <img src="#" href="#" alt="item"/>
-
-        <p>Item: {this.state.item.name}</p>
+        <p>Item: {this.state.item.title}</p>
         <p>Description: {this.state.item.description}</p>
-        <p>Pollen Price: {this.state.item.price}</p>
+        <p>BeeBucks: {this.state.item.beebucks}</p>
         <span>Lender: {this.state.lender.username+ " "}</span>
         <span>{this.state.lender.firstname + " "}</span>
         <span>{this.state.lender.lastname + " "}</span>
-        <span>Lender Community: {this.state.lender.city+ " " + this.state.lender.state}</span>
+        <img src={this.state.lender.fbpicture}/>
         <button name="messageLender" onClick={this.handleMessageLender}>Message Lender</button>
         <button name="requestItem" onClick={this.handleItemRequest}>Request Item</button>
       </div>
