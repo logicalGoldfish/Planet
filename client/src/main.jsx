@@ -66,17 +66,9 @@ $(document).ready(function(){
 			return <SideNavBar showSideNavBar={this.state.showSideNavBar} toggleSideNavBar={this.toggleSideNavBar}/>; 
 		},
 
-		logOut: function(){
-			FB.logout(function(response) {
-			document.location.href = "/login";
-			    // Person is now logged out
-			});
-		},
-
 		render: function(){
 			return (
 					<div>
-						<input type="button" onClick={this.logOut} href="/login" value="Log out"/>
 						<TopBar toggleSideNavBar={this.toggleSideNavBar}/>
 						{this.state.showSideNavBar ? this.renderSideNavBar() : null}
 						<RouteHandler/>

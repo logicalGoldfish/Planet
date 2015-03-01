@@ -17,6 +17,13 @@ var TopBar = React.createClass({
   //   actions.clickProfilePic();
   // },
 
+  logOut: function(){
+    FB.logout(function(response) {
+    document.location.href = "/login";
+        // Person is now logged out
+    });
+  },
+
   render: function() {
     // var _sideNavBar;
     // console.log('showSideBar', this.state.showSideBar);
@@ -30,6 +37,7 @@ var TopBar = React.createClass({
           <span>Welcome, {this.props.name}
           <a href="#" ><Link to="profile"><img className="profilePicture" src="../css/images/profilePlaceholder.png" onClick={this.handleProfileClick} /></Link></a>
           </span>
+          <input type="button" onClick={this.logOut} href="/login" value="Log out"/>
         </div>
     );
   }
