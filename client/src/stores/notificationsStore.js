@@ -37,7 +37,7 @@ var notificationStore = Reflux.createStore({
 
 	onItemRequestDeclined: function(borrowerId, itemId) {
 		var that = this;
-		request.del("/api/notifications/reject/" + "" + borrowerId + "/" + itemId + "", function(res) {
+		request.del("/api/notifications/reject/" + itemId + "/" + borrowerId, function(res) {
 			if (res.error) {
 				console.log('error occurred: ', error)
 			} else {

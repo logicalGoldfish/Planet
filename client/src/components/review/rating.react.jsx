@@ -33,10 +33,9 @@ var rating = React.createClass({
 	render: function() {
 		console.log('rating component renders with state/props', this.state, this.props);
 		var stars = [];
-		for (var i = 0; i <= this.state.max; i++) {
+		for (var i = 1; i <= this.state.max; i++) {
 			// TODO: We need to pass in the rating
-			// var fill = i <= this.props.data.rating;
-			var fill = true;
+			var fill 	= i <= this.props.data.rating;
 			var hover = i <= this.state.hoverIndex;
 			// [Note] Each star will get passed this.props.data which will come from the review component
 			// [Note] It will also get a boolean value for filler and hoverIndex and some event handlers that are passed from this component and update this components state

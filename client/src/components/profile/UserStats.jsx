@@ -1,6 +1,5 @@
 var React 	= require('react');
 var Reflux 	= require('reflux');
-var Rating 	= require('./Rating.jsx');
 
 var UserStats = React.createClass({
 	// [Note] pass props from profile component to user Stats component

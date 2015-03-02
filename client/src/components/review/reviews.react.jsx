@@ -23,8 +23,7 @@ var Reviews = React.createClass({
 		var pendingReviews;
 		console.log('review components state', this.state);
 		if (this.state.pendingReviews) {
-			// [Bug] currently reviews is referencing the whole response instead of the body of the response
-			// [Warning] I think this needs to be this.state.reviews.pendingReviews
+			// [Bug] When there are no pending reviews, this lookup fails and throws an error
 			pendingReviews = this.state.pendingReviews.map(function(review, index){
 				return <Review review={review} />
 			});
