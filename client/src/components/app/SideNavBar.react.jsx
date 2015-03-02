@@ -51,6 +51,7 @@ var SideNavBar = React.createClass({
 					<SideNavBarElement text="REVIEWS" to="reviews-pending" toggleSideNavBar={this.props.toggleSideNavBar}/>
 					<SideNavBarElement text="ITEMS" to="items" toggleSideNavBar={this.props.toggleSideNavBar}/>
 					<SideNavBarElement text="POST AN ITEM" to="postItem" toggleSideNavBar={this.props.toggleSideNavBar}/>
+					<SideNavBarElement text="LOG OUT" to="logout" toggleSideNavBar={this.props.toggleSideNavBar}/>
 				</ul>
 			</div>
 		);

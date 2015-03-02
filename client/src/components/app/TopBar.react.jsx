@@ -13,11 +13,18 @@ var TopBar = React.createClass({
     actions.toggleSideNav();
   },
 
+  // handleProfileClick: function(evt) {
+  //   actions.clickProfilePic();
+  // },
+
   render: function() {
 
     return (
         <div className="panel-body">
           <div className="glyphicon glyphicon-menu-hamburger" onClick={this.props.toggleSideNavBar}></div>
+          <span>Welcome, {this.props.name}
+          <a href="#" ><Link to="profile"><img className="profilePicture" src="../css/images/profilePlaceholder.png" onClick={this.handleProfileClick} /></Link></a>
+          </span>
         </div>
     );
   }

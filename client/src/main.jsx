@@ -18,6 +18,7 @@ $(document).ready(function(){
 	var Profile 		 				= require('./components/profile/Profile.react.jsx');
 	var TopBar			 				= require('./components/app/TopBar.react.jsx');
 	var SideNavBar	 				= require('./components/app/sideNavBar.react.jsx');
+	var Logout    	 				= require('./components/app/logout.react.jsx');
 	var Notifications 			= require('./components/notifications/Notifications.react.jsx');
 	var Messaging 					= require('./components/message/messagingUsers.react.jsx');
 	var Message 						= require('./components/message/messaging.react.jsx');
@@ -66,17 +67,9 @@ $(document).ready(function(){
 			return <SideNavBar showSideNavBar={this.state.showSideNavBar} toggleSideNavBar={this.toggleSideNavBar}/>; 
 		},
 
-		logOut: function(){
-			FB.logout(function(response) {
-			document.location.href = "/login";
-			    // Person is now logged out
-			});
-		},
-
 		render: function(){
 			return (
 					<div>
-						<input type="button" onClick={this.logOut} href="/login" value="Log out"/>
 						<TopBar toggleSideNavBar={this.toggleSideNavBar}/>
 						{this.state.showSideNavBar ? this.renderSideNavBar() : null}
 						<RouteHandler/>
@@ -156,6 +149,7 @@ $(document).ready(function(){
 	  	<Route name="SingleItem" path="/singleItem" handler={SingleItem}/>
 	  	<Route name="Messaging" path="/messaging" handler={Message}/>
 	  	<Route name="SingleReview" path="/singleReview" handler={SingleReview}/>
+	  	<Route name="logout" path="/logout" handler={Logout}/>
 
 	  </Route>
 	);

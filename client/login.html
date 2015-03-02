@@ -4,21 +4,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>LenderBee</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-  <!-- Latest compiled and minified CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="../bower_components/fontawesome/css/font-awesome.css">
-  <!-- Optional theme -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
   <link rel="stylesheet" href="/css/styles.css">
-  <!-- Latest compiled and minified JavaScript -->
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/react/0.12.2/JSXTransformer.js'></script>
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/react/0.12.2/react-with-addons.js'></script>
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/react/0.12.2/react.js'></script>
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.2/js/bootstrap.min.js'></script>
-  <!-- Google Maps API -->
-  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAna-lnoeF3HTZUEZJTzuccXqvXTZhOHO4"></script>
-
 </head>
 <body>
   <script>
@@ -33,7 +19,6 @@
       // for FB.getLoginStatus().
       if (response.status === 'connected') {
         // Logged into your app and Facebook.
-        console.log("BLARG: ", response);
         $.ajax({
           type: "get",
           url: "/api/users/test",
