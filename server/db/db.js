@@ -33,9 +33,6 @@ if (!global.hasOwnProperty('db')) {
   Item.belongsTo(User, {as: 'borrower', foreignKey: 'borrower_id'});
   Item.belongsTo(User, {as: 'lender', foreignKey: 'lender_id'});
   
-  // User.hasMany(Message, {foreignKey: 'to_id'});
-  // User.hasMany(Message, {foreignKey: 'from_id'});
-  
   Review.belongsTo(User, {as: 'reviewee', foreignKey: 'reviewee_id'});
   Review.belongsTo(User, {as: 'reviewer', foreignKey: 'reviewer_id'});
   Review.belongsTo(Item, {as: 'item', foreignKey: 'item_id'});

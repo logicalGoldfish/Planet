@@ -7,20 +7,19 @@ var controller = {};
 var Sequelize = require('sequelize');
 var ReviewInstance = require('../utils/reviewConstructor.js');
 
+/* Creates a new review with rating and review.
+ * THIS IS NOT BEING USED CURRENTLY.
+ */
 controller.create = function(req, res, next){
   console.log('reviews ctrl create req.body:', req.body);
   console.log('reviews ctrl create req.params', req.params);
-  // assume reviewer_id are in req.params (url)
-  // assume reviewee_id, rating and review are in req.body (form)
-
   var newReview = {
     rating: req.body.rating,
     review: req.body.review,
     reviewee_id: req.body.reviewee_id,
-    reviewer_id: req.params.user,
+    reviewer_id: req.params.userId,
     item_id: req.body.item_id
   };
-  console.log('\n',newReview+'\n');
 
   Review.create(newReview)
     .catch(function(err) {
@@ -41,24 +40,29 @@ controller.create = function(req, res, next){
     });
 };
 
+/* Creates pending reviews.
+ * Two blank review entries in the database are created
+ * when the borrower returns the item.
+ */
 controller.createPending = function(req, res, next){
   var lender_id   = req.params.lender_id;
   var borrower_id = req.params.borrower_id;
-  var item_id     = req.body.item_id;
+  var item_id     = req.params.item_id;
   var lenderReview = new ReviewInstance(null, null, borrower_id, lender_id, item_id);
   var borrowerReview = new ReviewInstance(null, null, lender_id, borrower_id, item_id);
 
   var records = [lenderReview, borrowerReview];
   Review.bulkCreate(records)
-    .catch(function(err){
-      console.log('error creating pending reviews', err);
-      res.status(500);
-    })
-    .then(function(reviews){
-      res.send(reviews);
-    });
+  .catch(function(err){
+    console.log('error creating pending reviews', err);
+    res.status(500).json({error: 'error creating pending reviews'});
+  }).then(function(reviews){
+    res.send(reviews);
+  });
 };
 
+/* Creates a 
+ */
 controller.updateOne = function(req, res, next) {
   console.log('THE REQ IS AS SUCH', req.body);
   var rating = req.body.rating;
@@ -85,21 +89,20 @@ controller.updateOne = function(req, res, next) {
   })
 },
 
-
+/* Fetches all reviews for the logged in user.
+ */
 
 controller.getReviews = function(req, res, next){
-  console.log('fetching reviews for user ', req.params.user);
-  // console.log('user', req.params.user);
-  var userId = req.params.user;
+  // console.log('fetching reviews for user ', req.params.user);
+  // TODO: only return reviews that do not have null ratings
+  var userId = req.params.userId;
   Review.findAll({
     where: {reviewee_id: userId},
     include: [{model: User, as: 'reviewer'}, {model: Item, as: 'item'}],
-  })
-  .catch(function(error){
+  }).catch(function(error){
     console.log('error getting reviews for user: ' + userId, error);
-  })
-  .then(function(reviews){
-    console.log('REVIEWS', reviews);
+    res.status(500).json({error: 'error getting reviews for user: ' + userId});
+  }).then(function(reviews){
     res.json(reviews);
   });
 };
