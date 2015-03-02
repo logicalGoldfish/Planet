@@ -51,6 +51,7 @@ $(document).ready(function(){
 			console.log("SOCKET: ", socket);
 			socket.on("userLoad", function(data){
 				actions.mountUser(data);
+				socket.disconnect(); 
 			});
 
 		},
