@@ -2,7 +2,6 @@ var actions = require('../actions/actions.js');
 var request = require('superagent');
 var Reflux  = require('reflux');
 var makeUrl = require('make-url');
-var cloudinary = require('cloudinary');
 var api     = require('../utils/url-paths');
 var userStore = require('./user.js');
 // var exampleimg = './exampleimg.png'

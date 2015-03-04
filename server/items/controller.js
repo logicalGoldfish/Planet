@@ -76,6 +76,27 @@ controller.searchItemByCity = function(req, res, next){
   // });
 };
 
+controller.getItemByCity = function(req, res, next){
+  var city = '';
+  User.find({
+    where: { id: req.params.userId },
+    attributes: ['city']
+  })
+  .then(function(user) {
+    city = user.dataValues.city;
+    // console.log('\nUSER FOUND:', user.dataValues);
+    Item.findAll({
+      where: { city: city },
+      include: [{ model: User, as: 'lender' }]
+    })
+    .then(function(items) {
+      res.json(items);
+    })
+    .catch(function(err) {
+      console.error('\nsearchItemByCity error:', err);
+    })    
+  })
+};
 
 controller.getOneByUser = function(req, res, next){
   console.log('fetching items for user --------', req.params.user);

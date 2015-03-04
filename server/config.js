@@ -192,6 +192,7 @@ module.exports = function(app, express){
   //API routes for items (can amend as we decide what we need)
   app.post('/api/items/:userId', items.create); //WORKS
   app.get('/api/items/city/:userId/:title', items.searchItemByCity); //WORKS
+  app.get('/api/items/allcity/:userId', items.getItemByCity);
   app.put('/api/items/return/:itemsId', items.returnItem); //WORKS --itemsId is the id of the item being returned
   app.get('/api/items/user/:userId', items.getOneByUser);
     

@@ -64,6 +64,7 @@ var userStore = Reflux.createStore({
 	      console.err('error trying to get item information for user', err);
 	    }
 	    else {
+	      actions.randomItems(res.body.id);
 	      this.data = res.body;
 	      // console.log('users userStore data', this.data);
 	      this.trigger(this.data);
