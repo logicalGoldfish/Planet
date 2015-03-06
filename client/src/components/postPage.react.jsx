@@ -13,24 +13,10 @@ var PostPage = React.createClass({
   mixins: [Reflux.connect(postItemStore)],
 
   componentDidMount: function() {
-    
-
-    // $('#itemPostPhotos').unsigned_cloudinary_upload("iqrem4nu", 
-    //     { cloud_name: 'dnfsudmqq', tags: 'browser_uploads'},
-    //     {multiple: true}
-    //     )
-    //   .bind('cloudinarydone', function(e, data) {
-    //     if(e) {
-    //       console.log('CLOUDINARY ERROR', e)
-    //     } else {
-    //       console.log('CLOUDINARY DATA', data);
-    //     }
-    //   });
+   
   },
 
   componentWillUnmount: function() {
-    // $.cloudinary.config({ cloud_name: 'dnfsudmqq', api_key: '885216345699682'})
-    // TodoStore.removeChangeListener(this._onChange);
   },
 
   handlePostSubmit: function(e) {

@@ -27,7 +27,7 @@ var searchBar = React.createClass({
 
   render: function() {
     return (
-      <div className="ui fluid icon input">
+      <div className="ui fluid icon input searchBar">
         <input type="text" placeholder="Search..." id="search-bar"></input>
         <i className="circular search icon" onClick={this.handleSubmit}></i>
       </div>

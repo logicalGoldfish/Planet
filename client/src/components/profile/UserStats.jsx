@@ -18,7 +18,7 @@ var UserStats = React.createClass({
 				<RatingStarStatic className="profileRating" rating={user.rating} />
 				<p>{user.city}{", "}{user.state}</p>
 				{/*<p>{user.state}</p>*/}
-				<i className="fa fa-usd"></i><p>{user.beebucks}</p>
+				<i className="fa fa-money"></i><span>{user.beebucks}</span>
 			</div>
 		);
 	}

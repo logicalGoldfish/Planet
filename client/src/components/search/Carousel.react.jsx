@@ -17,7 +17,6 @@ var InnerImage = React.createClass({
   },
 
   render: function(){
-    console.log("HO HO HO: ", this.props.itemInfo);
     return (
       <div>
         <Link to="SingleItem" onClick={this.handleClick}>

@@ -1,3 +1,20 @@
 #topbar {
 	background-color: #FFD34E;
+  z-index: 5;
+}
+
+.input.searchBar {
+  border: 1px solid #FFD34E;
+  width: 70%;
+  margin: 1% auto;
+  z-index: 5;
+  opacity: 0.8;
+}
+
+div.searchBar {
+  background-color: #FFD34E;
+}
+
+.ui.grid>.column:not(.row), .ui.grid>.row>.column {
+  text-align: center;
 }
