@@ -41,6 +41,9 @@ input#search-bar {
   /*position: absolute;*/
 }
 
+.putMiddle {
+  display: inline-block;
+}
 
 span {
   text-align: center;
