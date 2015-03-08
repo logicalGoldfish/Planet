@@ -1,0 +1,377 @@
+@media (min-width: 600px) {
+
+}
+/*
+@media (max-width: 350px) {
+  div.searchResultsList {
+    display: none;
+  }
+}
+*/
+@media only screen and (min-width : 320px) and (max-width : 480px) {
+  div.searchResultsList {
+    display: none;
+  }
+
+  div#mapPanel {
+    visibility: visible;
+      color: red;
+      float: right;
+      background-color: yellow;
+      margin-right: 3%;
+      z-index: 5;
+      margin: auto;
+      border: 1px solid #999;
+  }
+}
+
+html {
+  font-size: 15px;
+}
+html, body, .map-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background-color: #FDFDFD;
+}
+
+
+.panel-body {
+  background-color: #FFD34E;
+}
+
+input#search-bar {
+  /*position: absolute;*/
+}
+
+.putMiddle {
+  display: inline-block;
+}
+
+span {
+  text-align: center;
+  margin: auto;
+}
+
+.input-group {
+  margin: 2% auto 2% auto;
+  width: 70%;
+}
+
+.form-control {
+  display: block;
+  height: 34px;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #555;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #FFD34E;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+  -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+  -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+  transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+
+.messageBox {
+  width: 70%;
+  margin: auto;
+}
+
+.sideNavBar {
+  border: none;
+  border-radius: 0px;
+  font-size: 20px;
+  padding: 20px;
+  background-color: #2A2C2B;
+/*  opacity: 0.85;*/
+  color: white;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%; /* needs to take up 100% of the view height */
+  width: 250px; /* needs to take up 75% or so of the view width */
+  z-index: 9999; /* so sideNav renders on top of everything else */  
+}
+
+div.nav.nav-pills.nav-stacked {
+  margin-top: 10%
+}
+
+.sideNavBarLink {
+  color: white;
+}
+
+p.sideNavBarLink {
+  padding-bottom: 8%;
+}
+
+p.sideNavBarLink:hover {
+  color: #FFD34E;
+}
+
+.postForm {
+  margin: auto auto 10% auto;
+  width: 70%;
+}
+.profilePicture {
+  background-size: cover;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.carousel {
+  text-align: center;
+}
+
+.carousel ul {
+  list-style: none;
+  padding-left: 0px;
+}
+
+.carousel ul li {
+  display: inline;
+  padding: 5px;
+}
+
+.carousel ul li img {
+  width: 100px;
+  height: 100px;
+}
+
+.inline {
+  display: inline-block;
+}
+
+.arrow {
+  width: 15px;
+  height: 100px;
+}
+
+.resultsContainer {
+  width: 100%;
+  height: 100%;
+  margin: auto;
+}
+
+
+div .map-container {
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  /*margin: auto;*/
+  /*overflow: hidden;*/
+}
+
+.gm-style > div:first-child > div + div > div:last-child > div > div:first-child > div
+{
+    /* we have to use !important because we are overwritng inline styles */
+    color: yellow !important;
+}
+
+/* arrow colour */
+/*.gm-style > div:first-child > div + div > div:last-child > div > div:first-child > div > div > div
+{
+    background-color: "yellow" !important; 
+}
+*/
+/* close button */
+.gm-style > div:first-child > div + div > div:last-child > div > div:last-child
+{
+    display: none;
+}
+
+/* image icon inside close button */
+.gm-style > div:first-child > div + div > div:last-child > div > div:last-child > img
+{
+    display: none;
+}
+
+.pendingReviewDiv {
+  border: 1px solid black;
+}
+
+/* Rating & Stars CSS Fonts */
+.rating {
+  font-size: 175%;
+  padding: 0 0.5em;
+}
+.rating .rating-highlight,
+.rating.rating-highlight:hover {
+  color: #f4914e;
+}
+.rating .rating-normal,
+.rating.rating-normal:hover {
+  color: #3c3c3c;
+}
+.rating > a {
+  text-decoration: none;
+}
+
+.lenderInfoWindow {
+  font-weight: bold;
+  display: block;
+}
+
+#infoClick {
+  text-decoration: bold;
+}
+
+/*.infoDescription.fa-quote-left, .infoDescription.fa-tag, .infoDescription.fa-user, .infoDescription.fa-star{
+  color: #FFD34E;
+}*/
+
+.itemBeebucks {
+  display: block;
+}
+
+.userStats {
+  margin: auto;
+  text-align: center;
+}
+
+.userStatsName {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 200%;
+}
+
+div.profileFBPicDiv {
+  height:200px;
+  width:200px;
+  object-fit: cover;
+  overflow:hidden;
+  border-radius:50%;
+  margin: 0 auto;
+  border: 1px solid white
+}
+
+.singleItemFBPicDiv {
+  height:150px;
+  width:150px !important;
+  overflow:hidden;
+  border-radius:50%;
+  margin: 0 auto;
+  border: 1px solid white
+  object-fit: cover;
+}
+
+.singleReviewFBpic {
+  height: 80px;
+  width: 80px;
+  overflow: hidden;
+  border-radius: 50%;
+  margin: 1%;
+  border: 1px solid white;
+  object-fit: cover;
+}
+
+.profileFBPicDiv img{
+    -webkit-transform:translate(-50%);
+    margin-left:100px;
+}
+
+.profileRating {
+  display: inline;
+  float: right;
+}
+/*
+.circle-image{
+    display:block;
+}*/
+
+.singleProfileReview {
+  margin: 0 auto 1% auto;
+  height: 20%;
+  width: 40%;
+}
+
+.singleReviewPicDiv {
+  display: inline;
+}
+
+.singleReviewContent, .singleReviewReview {
+  display: inline-block;
+}
+
+.fa-money {
+  font-size: 24px;
+}
+
+.singleItemDescription {
+  margin: 1% auto;
+}
+
+div.messageWindow {
+  height: 350px;
+  overflow: scroll;
+}
+
+div.searchResultsList {
+  position: relative;
+  float: right;
+  margin-right: 3%;
+  width: 20%;
+  height: 400px;
+  overflow-y: auto;
+  opacity: 0.8;
+  z-index: 5;
+  background-color: white;
+  padding: 1%;
+  border: 1px solid #FDFDFD;
+}
+
+div#mapPanel {
+  visibility: visible;
+}
+/*
+#successMessage {
+  visibility: hidden;
+}
+*/
+div#successMessage {
+  display: none;
+}
+
+div#successMessageContainer {
+  position: relative;
+  margin: auto;
+  opacity: 0.95;
+  text-align: center;
+  z-index: 5;
+  width: 250px;
+}
+
+div#successMessage.success {
+  position: absolute;
+  display: block;
+  width: 100%;
+ /* top: 0;
+  z-index: 5;*/
+}
+
+.bee-fill {
+  background-color: #FFD34E;
+}
+
+.txt-over-pic {
+  position: absolute;
+  bottom: 25%;
+  left: 7%;
+  background-color: black;
+  color: white;
+  opacity: 0.4;
+}
+
+.ui.yellow.labeled.submit.icon.button {
+  color: black;
+}
+
+#sideNav {
+-vendor-animation-duration: 5s;
+}

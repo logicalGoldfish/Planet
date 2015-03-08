@@ -1,5 +1,5 @@
 ### node etc ###
-
+./server/.ApiKeysFB.js
 # Logs
 logs
 *.log

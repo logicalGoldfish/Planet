@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LenderBee</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <link rel="stylesheet" href="/css/styles.css">
+  <link href="http://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" type="text/css" href="./bower_components/semantic-ui/dist/semantic.css" />
+  <link rel="stylesheet" href="/css/landing.css" />
+</head>
+<body>
+  <!-- header -->
+  <div id="cover">
+    <div class="ui segment cover">
+      <h1 class="ui huge header" id="lenderbee">
+        LenderBee
+        <div class="sub header" id="tagline">
+          Find what you're looking for and share what you want with LenderBee
+        </div>
+      </h1>
+      <!-- button doesn't work
+      <div class="ui black basic button login fb-login-button" data-max-rows="1" data-size="large" data-show-faces="false" data-auto-logout-link="false">
+        <i class="facebook icon"></i>Login
+      </div>
+      -->
+
+      <!-- old button -->
+      <div class="loginButton">
+        <div class="fb-login-button login" data-max-rows="1" data-size="large" data-show-faces="false" data-auto-logout-link="false"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- this is content -->
+  <div class="loginButton">
+  <div id="body-content">
+    <div class="ui basic segment">
+      <img class="ui medium left floated image" src="assets/landing/screenshot-laptop.png" /><h4>
+      LenderBee helps people find what they're looking for from trusted community members, and gives lenders the confidence to share goods with trustworthy borrowers.</h4>
+    </div>
+
+    <!-- tech stack section -->
+    <h2 class="ui dividing center aligned header techused">Technologies Used</h2>
+    <div class="ui basic segment techused">
+      <div class="ui center aligned page grid" id="techstack">
+        <div class="five wide column">
+          <a href="http://bower.io/">
+            <div class="ui segment">
+              <img class="ui small fluid image" src="assets/landing/logos/bower.png" />
+              <div class="ui bottom attached label">Bower</div>
+            </div>
+          </a>
+        </div>
+        <div class="five wide column">
+          <a href="http://facebook.github.io/react/">
+            <div class="ui raised segment">
+              <img class="ui small fluid image" src="assets/landing/logos/reactlogo.png" />
+              <div class="ui bottom attached label">React / Reflux</div>
+            </div>
+          </a>
+        </div>
+        <div class="five wide column">
+          <a href="http://semantic-ui.com/">
+            <div class="ui raised segment">
+              <img class="ui small fluid image" src="assets/landing/logos/semantic.png" />
+              <div class="ui bottom attached label">Semantic UI</div>
+            </div>
+          </a>
+        </div>
+        <div class="five wide column">
+          <a href="https://nodejs.org/">
+            <div class="ui segment">
+              <img class="ui small fluid image" src="assets/landing/logos/node.png" />
+              <div class="ui bottom attached label">Node.js</div>
+            </div>
+          </a>
+        </div>
+        <div class="five wide column">
+          <a href="http://expressjs.com/">
+            <div class="ui segment">
+              <img class="ui small fluid image" src="assets/landing/logos/express.png" />
+              <div class="ui bottom attached label">Express</div>
+            </div>
+          </a>
+        </div>
+        <div class="five wide column">
+          <a href="https://www.npmjs.com/">
+            <div class="ui segment">
+              <img class="ui small fluid image" src="assets/landing/logos/npm-logo.svg" />
+              <div class="ui bottom attached label">npm</div>
+            </div>
+          </a>
+        </div>
+        <div class="five wide column">
+          <a href="http://docs.sequelizejs.com/en/latest/">
+            <div class="ui segment">
+              <img class="ui small fluid image" src="assets/landing/logos/sequelize.png" />
+              <div class="ui bottom attached label">Sequelize</div>
+            </div>
+          </a>
+        </div>
+        <div class="five wide column">
+          <a href="http://www.mysql.com/">
+            <div class="ui segment">
+              <img class="ui small fluid image" src="assets/landing/logos/MySQL.svg" />
+              <div class="ui bottom attached label">MySQL</div>
+            </div>
+          </a>
+        </div>
+        <div class="five wide column">
+          <a href="http://gulpjs.com/">
+            <div class="ui segment">
+              <img class="ui tiny fluid image" src="assets/landing/logos/gulp.png" />
+              <div class="ui bottom attached label">gulp.js</div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+  <!-- about us section -->
+    <h2 class="ui dividing center aligned header aboutus">About Us</h2>
+    <div class="ui basic segment" id="about-us">
+      <div class="ui center aligned page grid">
+
+        <!-- Devin's info -->
+        <div class="seven wide column">
+          <div class="ui move down masked instant reveal">
+            <div class="visible content">
+              <img src="assets/landing/teampics/devin.jpg" class="ui medium bordered image" />
+            </div>
+            <div class="hidden content">
+              <div class="ui basic center aligned segment team-card">
+                <div class="ui header">
+                  Devin Otway
+                  <div class="sub header">
+                    Product Owner<br />
+                    <a href="https://github.com/TroutZen"><i class="github icon"></i></a>
+                    <a href="http://linkedin.com/in/DevinOtway"><i class="linkedin icon"></i></a>
+                    <!-- <a href=""><i class="home icon"></i></a> -->
+                  </div>
+                </div>
+                <div class="team-description">
+                  Devin loves nerding out about full stack <br/>architectures, turmeric, and StarCraft.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Vijay's info -->
+        <div class="seven wide column">
+          <div class="ui move down masked instant reveal">
+            <div class="visible content">
+              <img src="assets/landing/teampics/vijay3.jpg" class="ui medium bordered image" />
+            </div>
+            <div class="hidden content">
+              <div class="ui basic center aligned segment team-card">
+                <div class="ui header">
+                  Vijay Ram
+                  <div class="sub header">
+                    Scrum Master<br />
+                    <a href="https://github.com/selvan89"><i class="github icon"></i></a>
+                    <a href="http://linkedin.com/in/vijayselvanram"><i class="linkedin icon"></i></a>
+                    <a href="http://kattumaram.azurewebsites.net"><i class="home icon"></i></a>
+                  </div>
+                </div>
+                <div class="team-description">
+                  Vijay is a fan of well documented code, <br/>literature, and artisan bread.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Samin's info -->
+        <div class="seven wide column">
+          <div class="ui move down masked instant reveal">
+            <div class="visible content">
+              <img src="assets/landing/teampics/samin.jpg" class="ui medium bordered image" />
+            </div>
+            <div class="hidden content">
+              <div class="ui basic center aligned segment team-card">
+                <div class="ui header">
+                  Samin Sepasi
+                  <div class="sub header">
+                    Development Team<br />
+                    <a href="https://github.com/samsep"><i class="github icon"></i></a>
+                    <a href="http://linkedin.com/in/saminsepasi"><i class="linkedin icon"></i></a>
+                    <a href="http://saminsepasi.com"><i class="home icon"></i></a>
+                  </div>
+                </div>
+                <div class="team-description">
+                  Samin's nickname is the Sa-MEAN stack. <br/>She likes traveling and Chipotle.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Matt's info -->
+        <div class="seven wide column">
+          <div class="ui move down masked instant reveal">
+            <div class="visible content">
+              <img src="assets/landing/teampics/matt.jpg" class="ui medium bordered image" />
+            </div>
+            <div class="hidden content">
+              <div class="ui basic center aligned segment team-card">
+                <div class="ui header">
+                  Matt Polland
+                  <div class="sub header">
+                    Development Team<br />
+                    <a href="https://github.com/matthewpolland"><i class="github icon"></i></a>
+                    <a href="http://linkedin.com/in/matthewpolland"><i class="linkedin icon"></i></a>
+                    <!-- <a href=""><i class="home icon"></i></a> -->
+                  </div>
+                </div>
+                <div class="team-description">
+                  Matt enjoys algorithms, long walks <br/>on the beach, and tacos.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Christine's info -->
+        <div class="seven wide column">
+          <div class="ui move down masked instant reveal">
+            <div class="visible content">
+              <img src="assets/landing/teampics/christine3.jpg" class="ui medium bordered image" />
+            </div>
+            <div class="hidden content">
+              <div class="ui basic center aligned segment team-card">
+                <div class="ui header">
+                  Christine Lee
+                  <div class="sub header">
+                    Development Team<br />
+                    <a href="https://github.com/cyancymk"><i class="github icon"></i></a>
+                    <a href="http://linkedin.com/in/christineylee4"><i class="linkedin icon"></i></a>
+                    <a href="http://www.heyitschristine.com"><i class="home icon"></i></a>
+                  </div>
+                </div>
+                <div class="team-description">
+                  Christine likes automation, pottery, <br/>and mochas.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+  </div>
+  <div class="signup">
+    <div class="ui center aligned segment"><h2 class="ui horizontal header divider">Sign up!</h2></div>
+    <form class="postForm">
+      <div class="ui fluid form yellow segment">
+        <div class="field">
+          <label>Address</label>
+          <input type="text" class="form-control" id="address" placeholder="Enter address" />
+        </div>
+        <div class="three fields">
+          <div class="field">
+            <label>City</label>
+            <input type="text" class="form-control" id="city" placeholder="Enter city" />
+          </div>
+          <div class="field">
+            <label>State</label>
+            <input type="text" class="form-control" id="state" placeholder="Enter state" />
+          </div>
+          <div class="field">
+            <label>Zip code</label>
+            <input type="text" class="form-control" id="zip" placeholder="Enter zip code" />
+          </div>
+        </div>
+        <div class="field">
+          <label>Country</label>
+          <input type="text" class="form-control" id="country" placeholder="Enter country" />
+        </div>
+        <div class="ui vertical segment">
+          <p></p>
+        </div>
+        <button id="submit" class="massive ui green basic button" name="submit">Submit</button>
+      </div>
+    </form>
+  </div>
+  <!-- footer -->
+  <div class="ui basic segment" id="footer">
+    <h3 class="ui header">
+      Visit us on Github <a href="http://github.com/logicalGoldfish/lenderbee"><i class="github alternate icon"></i></a>
+    </h3>
+  </div>
+
+  <script src="login.js"></script>
+</body>
+</html>
